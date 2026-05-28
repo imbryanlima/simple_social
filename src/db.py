@@ -10,7 +10,7 @@ from datetime import datetime
 DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
 class Base(DeclarativeBase):
-    pass a
+    pass
 
 class Post(Base):
     __tablename__ = "posts"
