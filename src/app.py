@@ -76,7 +76,10 @@ async def upload_file(
 
 
 @app.get("/feed")
-async def get_feed(session: AsyncSession = Depends(get_async_session), user: User = Depends(current_active_user)):
+async def get_feed(
+        session: AsyncSession = Depends(get_async_session),
+        user: User = Depends(current_active_user),
+):
     result = await session.execute(
         select(Post).options(joinedload(Post.user)).order_by(Post.created_at.desc())
     )
@@ -94,7 +97,7 @@ async def get_feed(session: AsyncSession = Depends(get_async_session), user: Use
                 "file_name": post.file_name,
                 "created_at": post.created_at.isoformat(),
                 "is_owner": post.user_id == user.id,
-                "email": post.user.email
+                "email": post.user.email if post.user else "Unknown"
             }
         )
 
