@@ -10,7 +10,7 @@ from fastapi_users.authentication import (
     JWTStrategy
 )
 from fastapi_users.db import SQLAlchemyUserDatabase
-from app.db import User, get_user_db
+from src.db import User, get_user_db
 
 load_dotenv()
 
