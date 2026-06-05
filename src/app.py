@@ -29,7 +29,7 @@ app.include_router(fastapi_users.get_verify_router(UserRead), prefix="/auth", ta
 app.include_router(fastapi_users.get_users_router(UserRead, UserUpdate), prefix="/users", tags=["users"])
 
 
-@app.post("/upload/")
+@app.post("/upload")
 async def upload_file(
     file: UploadFile = File(...),
     caption: str = Form(""),
