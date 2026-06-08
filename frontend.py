@@ -142,11 +142,9 @@ def feed_page():
         st.error("Failed to load feed")
 
 
-# Main app logic
 if st.session_state.user is None:
     login_page()
 else:
-    # Sidebar navigation
     st.sidebar.title(f"Hi {st.session_state.user['email']}!")
 
     if st.sidebar.button("Logout"):
